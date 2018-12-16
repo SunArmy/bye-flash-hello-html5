@@ -14,13 +14,11 @@ bye-flash-hello-html5 | 再见flash 你好html5
 
 （可以直接使用的意思就是不使用任何插件／扩展／脚本就能够播放视频。）
 
+支持html5播放良好的网站会逐划掉。最近测试几大主流视频网站的html5播放都没问题啦，该项目应该很快就会被归档了。
+
 - ~~[优酷](http://youku.com)~~
 
-  优酷可以直接播放HTML5啦，划！
-
-- [爱奇艺](http://iqiyi.com)
-
-  提示：使用较新版本的Edge15+、Chrome52+的用户**应该**可以直接使用HTML5播放。
+- ~~[爱奇艺](http://iqiyi.com)~~
 
 - [央视网](http://cctv.com)（cctv.com和cntv.cn，不支持直播）
 
@@ -34,13 +32,9 @@ bye-flash-hello-html5 | 再见flash 你好html5
 
   提示：使用Mac+safari的用户可以直接使用HTML5播放。
 
-- [腾讯视频](https://v.qq.com)
+- ~~[腾讯视频](https://v.qq.com)~~
 
-  提示：大部分浏览器可以直接使用HTML5播放。
-
-- [QQ音乐MV](https://y.qq.com/portal/mv_lib.html)
-
-  提示：Chrome52+可以直接使用HTML5播放。
+- ~~[QQ音乐MV](https://y.qq.com/portal/mv_lib.html)~~
 
 - [搜狐视频](https://tv.sohu.com/)
 

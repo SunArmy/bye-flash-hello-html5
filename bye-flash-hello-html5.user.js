@@ -4,10 +4,6 @@
 // @author      levinit
 // @description 国内主流视频网站的HTML5播放
 // @include     *://*.le.com/*
-// @include     *://*.iqiyi.com/*html*
-// @include     *://v.qq.com/*
-// @include     *://y.qq.com/*
-// @include     *://view.inews.qq.com/*
 // @include     *://tv.cctv.com/*
 // @include     *://wlchunwan.cctv.com/*
 // @include     *://*.cntv.cn/video/*
@@ -44,7 +40,7 @@ if (location.href.indexOf('m.acfun') >= 0) {
 let [ua, isMobile] = [null, false]; //user-agent 和 是否使用移动ua
 
 //这些网站使用移动ua
-const sites = ['cctv', '.163', 'iqiyi', 'cntv', 'sohu', 'acfun'];
+const sites = ['cctv', '.163', 'cntv', 'sohu', 'acfun'];
 
 sites.forEach(curVal => {
   if (location.host.indexOf(curVal) >= 0) {
@@ -57,11 +53,6 @@ sites.forEach(curVal => {
 if (isMobile) {
   ua =
     'Mozilla/5.0 (Linux; U; Android 4.0.4; GT-I9300 Build/IMM76D) AppleWebKit/601.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/601.1.46';
-  //Android7
-  //'Mozilla/5.0 (Linux; Android 7.0; PLUS Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.98 Mobile Safari/537.36';
-  //ipad2
-  //"Mozilla/5.0 (iPad; U; CPU OS 4_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8F191 Safari/6533.18.5";
-  //Android 4
 } else {
   //使用chrome、mac、safari等ua
   if (location.host.indexOf('le.com') >= 0) {
@@ -81,29 +72,11 @@ changeUA(ua);
 window.onload = function() {
   if (
     isMobile === true &&
-    (location.href.search('study.163') >= 0 ||
-      location.href.search('iqiyi.com') >= 0)
+    location.href.search('study.163') >= 0
   ) {
     const v = ele('video');
     if (v) {
       v.setAttribute('controls', 'controls');
-      if (location.href.search('iqiyi.com') >= 0) {
-        iqiyi();
-      }
-    }
-  }
-  //爱奇艺的相关调整
-  function iqiyi() {
-    //爱奇艺默认的进度条 和 播放下一个视频和调整画质的控制条
-    const [defaultProcess, controlBar] = [
-      ele('.process-response'),
-      ele('.bottom')
-    ];
-    if (controlBar) {
-      controlBar.style.bottom = '25px'; //播放下一个视频和调整画质的控制条往上放
-      if (defaultProcess) {
-        defaultProcess.style.display = 'none'; //让默认进度条消失
-      }
     }
   }
 };
@@ -115,22 +88,6 @@ function ele(element) {
 }
 //更改ua的函数
 function changeUA(ua) {
-  //QQ音乐MV+Edge 不切换ua
-  if (
-    (location.host === 'y.qq.com') &&
-    navigator.userAgent.indexOf('Edge') >= 0
-  ) {
-    return false;
-  }
-
-  //爱奇艺+非Firefox 不切换ua
-  if (
-    location.host.indexOf('iqiyi') >= 0 &&
-    navigator.userAgent.indexOf('Firefox') === -1
-  ) {
-    return false;
-  }
-
   Object.defineProperty(navigator, 'userAgent', {
     value: ua,
     writable: false,
